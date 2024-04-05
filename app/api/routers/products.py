@@ -8,9 +8,9 @@ from app.service import products
 router = APIRouter()
 
 
-@router.get("/products/", tags=["products"], response_model=List[ProductRead])
-def get_products(session: SessionDep):
-    product_list = products.get_products(session = session)
+@router.get("/products/", tags=["products"], response_model=List[ProductRead],)
+def get_products(session: SessionDep, skip: int = 0, limit: int = 100):
+    product_list = products.get_products(session = session, limit=limit, skip=skip)
     return product_list
 
 

@@ -17,8 +17,8 @@ def get_product_by_name(session:Session, name:str) -> Product | None:
     return product_instance
 
 
-def get_products(session:Session) -> Product | None:
-    statement = select(Product)
+def get_products(session:Session, limit:int, skip:int) -> Product | None:
+    statement = select(Product).offset(skip).limit(limit)
     products = session.exec(statement).all()
     return products
 
