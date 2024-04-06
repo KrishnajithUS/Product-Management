@@ -19,6 +19,17 @@ def get_products(session: SessionDep, skip: int = 0, limit: int = 100):
     return product_list
 
 
+@router.get(
+    "/products/{id}",
+    tags=["Products"],
+    response_model=ProductRead,
+    dependencies=[Depends(get_current_user)],
+)
+def get_product(session: SessionDep, id:int):
+    product = session.get(Product, id)
+    return product
+
+
 @router.post(
     "/products/",
     tags=["Products"],
