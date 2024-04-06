@@ -2,14 +2,17 @@ from typing import Any
 from fastapi import APIRouter, Depends, HTTPException
 from app.api.deps import SessionDep, get_current_active_superuser
 from app.models.models import User, UserCreate, UserOut
-from app.service import users
+from app.service import users 
 
 
 router = APIRouter()
 
 
 @router.post(
-    "users/", tags=['users'], dependencies=[Depends(get_current_active_superuser)], response_model=UserOut
+    "/users",
+    tags=["Users"],
+    dependencies=[Depends(get_current_active_superuser)],
+    response_model=UserOut,
 )
 def create_user(session: SessionDep, user_in: UserCreate) -> Any:
     """
