@@ -12,7 +12,7 @@ from app.service import users
 router = APIRouter()
 
 
-@router.post("/login/access-token", tags = ["Login"])
+@router.post("/login/access-token", tags=["Login"])
 def login_access_token(
     session: SessionDep, form_data: Annotated[OAuth2PasswordRequestForm, Depends()]
 ) -> Token:

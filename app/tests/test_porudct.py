@@ -7,7 +7,9 @@ from app.tests.utils import create_random_product
 client = TestClient(server)
 
 
-def test_create_product(client: TestClient, superuser_token_headers: dict[str, str], db: Session):
+def test_create_product(
+    client: TestClient, superuser_token_headers: dict[str, str], db: Session
+):
     response = client.post(
         "/products/",
         headers=superuser_token_headers,
@@ -26,7 +28,9 @@ def test_create_product(client: TestClient, superuser_token_headers: dict[str, s
     assert data["price"] == 60000
 
 
-def test_get_products(client: TestClient, superuser_token_headers: dict[str, str], db: Session):
+def test_get_products(
+    client: TestClient, superuser_token_headers: dict[str, str], db: Session
+):
     response = client.get("/products/", headers=superuser_token_headers)
     assert response.status_code == 200
 

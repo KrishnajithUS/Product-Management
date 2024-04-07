@@ -28,6 +28,11 @@ def create_random_product(db: Session) -> Product:
     description = random_lower_string()
     quantity = 1
     price = 5500
-    product_in = ProductCreate(product_name=product_name, description=description, quantity=quantity, price=price)
-    print('productin__',product_in)
+    product_in = ProductCreate(
+        product_name=product_name,
+        description=description,
+        quantity=quantity,
+        price=price,
+    )
+    print("productin__", product_in)
     return products.create_product(session=db, product_create=product_in)

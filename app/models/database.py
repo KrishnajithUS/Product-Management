@@ -33,5 +33,5 @@ def init_db(session: Session) -> None:
         )
         logging.info(f"creating new super user with email {settings.FIRST_SUPERUSER}")
         user = users.create_user(session=session, user_create=user_in)
-        if user: 
+        if user:
             logging.info("User creation successfully")

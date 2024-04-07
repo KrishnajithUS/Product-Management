@@ -33,13 +33,7 @@ You can use the below superuser credentials for demonstration:
 """
 
 
-
-
-server = FastAPI(
-    title=settings.PROJECT_NAME,
-    description=description
-
-)
+server = FastAPI(title=settings.PROJECT_NAME, description=description)
 
 
 @server.on_event("startup")
