@@ -14,6 +14,7 @@ This project enables efficient management of products through the following tech
 ## Getting Started
 1. Install dependencies
     ```zsh
+    cd Product-Management
     # recommended to use virtual env
     pip install -r requirements.txt
     ```
